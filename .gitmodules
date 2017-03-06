@@ -1,0 +1,3 @@
+[submodule "SpaceTimeMilieuModel"]
+	path = SpaceTimeMilieuModel
+	url = https://github.com/carlbrown/SpaceTimeMilieuModel.git

@@ -13,6 +13,7 @@
 		CFCD3B571E6DF86200FF41D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCD3B561E6DF86200FF41D8 /* Assets.xcassets */; };
 		CFCD3B5A1E6DF86200FF41D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFCD3B581E6DF86200FF41D8 /* LaunchScreen.storyboard */; };
 		CFCD3B651E6DF86200FF41D8 /* SpaceTimeMilieuAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCD3B641E6DF86200FF41D8 /* SpaceTimeMilieuAppTests.swift */; };
+		CFCD3B711E6DF96D00FF41D8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFCD3B701E6DF96D00FF41D8 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +28,8 @@
 
 /* Begin PBXFileReference section */
 		CFCD3B4C1E6DF86200FF41D8 /* SpaceTimeMilieuApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceTimeMilieuApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFCD3B4F1E6DF86200FF41D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CFCD3B511E6DF86200FF41D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CFCD3B4F1E6DF86200FF41D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../Sources/SpaceTimeMilieuApp/AppDelegate.swift; sourceTree = "<group>"; };
+		CFCD3B511E6DF86200FF41D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../Sources/SpaceTimeMilieuApp/ViewController.swift; sourceTree = "<group>"; };
 		CFCD3B541E6DF86200FF41D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CFCD3B561E6DF86200FF41D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFCD3B591E6DF86200FF41D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +37,7 @@
 		CFCD3B601E6DF86200FF41D8 /* SpaceTimeMilieuAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceTimeMilieuAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFCD3B641E6DF86200FF41D8 /* SpaceTimeMilieuAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTimeMilieuAppTests.swift; sourceTree = "<group>"; };
 		CFCD3B661E6DF86200FF41D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFCD3B701E6DF96D00FF41D8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFCD3B711E6DF96D00FF41D8 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +65,7 @@
 				CFCD3B4E1E6DF86200FF41D8 /* SpaceTimeMilieuApp */,
 				CFCD3B631E6DF86200FF41D8 /* SpaceTimeMilieuAppTests */,
 				CFCD3B4D1E6DF86200FF41D8 /* Products */,
+				CFCD3B6F1E6DF96D00FF41D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +98,14 @@
 				CFCD3B661E6DF86200FF41D8 /* Info.plist */,
 			);
 			path = SpaceTimeMilieuAppTests;
+			sourceTree = "<group>";
+		};
+		CFCD3B6F1E6DF96D00FF41D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFCD3B701E6DF96D00FF41D8 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
