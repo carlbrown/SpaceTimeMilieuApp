@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CFCD3B501E6DF86200FF41D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCD3B4F1E6DF86200FF41D8 /* AppDelegate.swift */; };
+		CFCD3B521E6DF86200FF41D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCD3B511E6DF86200FF41D8 /* ViewController.swift */; };
+		CFCD3B551E6DF86200FF41D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFCD3B531E6DF86200FF41D8 /* Main.storyboard */; };
+		CFCD3B571E6DF86200FF41D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFCD3B561E6DF86200FF41D8 /* Assets.xcassets */; };
+		CFCD3B5A1E6DF86200FF41D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFCD3B581E6DF86200FF41D8 /* LaunchScreen.storyboard */; };
+		CFCD3B651E6DF86200FF41D8 /* SpaceTimeMilieuAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCD3B641E6DF86200FF41D8 /* SpaceTimeMilieuAppTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CFCD3B611E6DF86200FF41D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFCD3B441E6DF86200FF41D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFCD3B4B1E6DF86200FF41D8;
+			remoteInfo = SpaceTimeMilieuApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CFCD3B4C1E6DF86200FF41D8 /* SpaceTimeMilieuApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceTimeMilieuApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFCD3B4F1E6DF86200FF41D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CFCD3B511E6DF86200FF41D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CFCD3B541E6DF86200FF41D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CFCD3B561E6DF86200FF41D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFCD3B591E6DF86200FF41D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CFCD3B5B1E6DF86200FF41D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFCD3B601E6DF86200FF41D8 /* SpaceTimeMilieuAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceTimeMilieuAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFCD3B641E6DF86200FF41D8 /* SpaceTimeMilieuAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceTimeMilieuAppTests.swift; sourceTree = "<group>"; };
+		CFCD3B661E6DF86200FF41D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFCD3B491E6DF86200FF41D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFCD3B5D1E6DF86200FF41D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFCD3B431E6DF86200FF41D8 = {
+			isa = PBXGroup;
+			children = (
+				CFCD3B4E1E6DF86200FF41D8 /* SpaceTimeMilieuApp */,
+				CFCD3B631E6DF86200FF41D8 /* SpaceTimeMilieuAppTests */,
+				CFCD3B4D1E6DF86200FF41D8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFCD3B4D1E6DF86200FF41D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFCD3B4C1E6DF86200FF41D8 /* SpaceTimeMilieuApp.app */,
+				CFCD3B601E6DF86200FF41D8 /* SpaceTimeMilieuAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFCD3B4E1E6DF86200FF41D8 /* SpaceTimeMilieuApp */ = {
+			isa = PBXGroup;
+			children = (
+				CFCD3B4F1E6DF86200FF41D8 /* AppDelegate.swift */,
+				CFCD3B511E6DF86200FF41D8 /* ViewController.swift */,
+				CFCD3B531E6DF86200FF41D8 /* Main.storyboard */,
+				CFCD3B561E6DF86200FF41D8 /* Assets.xcassets */,
+				CFCD3B581E6DF86200FF41D8 /* LaunchScreen.storyboard */,
+				CFCD3B5B1E6DF86200FF41D8 /* Info.plist */,
+			);
+			path = SpaceTimeMilieuApp;
+			sourceTree = "<group>";
+		};
+		CFCD3B631E6DF86200FF41D8 /* SpaceTimeMilieuAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				CFCD3B641E6DF86200FF41D8 /* SpaceTimeMilieuAppTests.swift */,
+				CFCD3B661E6DF86200FF41D8 /* Info.plist */,
+			);
+			path = SpaceTimeMilieuAppTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFCD3B4B1E6DF86200FF41D8 /* SpaceTimeMilieuApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFCD3B691E6DF86300FF41D8 /* Build configuration list for PBXNativeTarget "SpaceTimeMilieuApp" */;
+			buildPhases = (
+				CFCD3B481E6DF86200FF41D8 /* Sources */,
+				CFCD3B491E6DF86200FF41D8 /* Frameworks */,
+				CFCD3B4A1E6DF86200FF41D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpaceTimeMilieuApp;
+			productName = SpaceTimeMilieuApp;
+			productReference = CFCD3B4C1E6DF86200FF41D8 /* SpaceTimeMilieuApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CFCD3B5F1E6DF86200FF41D8 /* SpaceTimeMilieuAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFCD3B6C1E6DF86300FF41D8 /* Build configuration list for PBXNativeTarget "SpaceTimeMilieuAppTests" */;
+			buildPhases = (
+				CFCD3B5C1E6DF86200FF41D8 /* Sources */,
+				CFCD3B5D1E6DF86200FF41D8 /* Frameworks */,
+				CFCD3B5E1E6DF86200FF41D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFCD3B621E6DF86200FF41D8 /* PBXTargetDependency */,
+			);
+			name = SpaceTimeMilieuAppTests;
+			productName = SpaceTimeMilieuAppTests;
+			productReference = CFCD3B601E6DF86200FF41D8 /* SpaceTimeMilieuAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFCD3B441E6DF86200FF41D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = IBM;
+				TargetAttributes = {
+					CFCD3B4B1E6DF86200FF41D8 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = PP64RT7P8Z;
+						ProvisioningStyle = Automatic;
+					};
+					CFCD3B5F1E6DF86200FF41D8 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = PP64RT7P8Z;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CFCD3B4B1E6DF86200FF41D8;
+					};
+				};
+			};
+			buildConfigurationList = CFCD3B471E6DF86200FF41D8 /* Build configuration list for PBXProject "SpaceTimeMilieuApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFCD3B431E6DF86200FF41D8;
+			productRefGroup = CFCD3B4D1E6DF86200FF41D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFCD3B4B1E6DF86200FF41D8 /* SpaceTimeMilieuApp */,
+				CFCD3B5F1E6DF86200FF41D8 /* SpaceTimeMilieuAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFCD3B4A1E6DF86200FF41D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFCD3B5A1E6DF86200FF41D8 /* LaunchScreen.storyboard in Resources */,
+				CFCD3B571E6DF86200FF41D8 /* Assets.xcassets in Resources */,
+				CFCD3B551E6DF86200FF41D8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFCD3B5E1E6DF86200FF41D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFCD3B481E6DF86200FF41D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFCD3B521E6DF86200FF41D8 /* ViewController.swift in Sources */,
+				CFCD3B501E6DF86200FF41D8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFCD3B5C1E6DF86200FF41D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFCD3B651E6DF86200FF41D8 /* SpaceTimeMilieuAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CFCD3B621E6DF86200FF41D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFCD3B4B1E6DF86200FF41D8 /* SpaceTimeMilieuApp */;
+			targetProxy = CFCD3B611E6DF86200FF41D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CFCD3B531E6DF86200FF41D8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFCD3B541E6DF86200FF41D8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CFCD3B581E6DF86200FF41D8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFCD3B591E6DF86200FF41D8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFCD3B671E6DF86300FF41D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CFCD3B681E6DF86300FF41D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CFCD3B6A1E6DF86300FF41D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PP64RT7P8Z;
+				INFOPLIST_FILE = SpaceTimeMilieuApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IBM.swift.SpaceTimeMilieuApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CFCD3B6B1E6DF86300FF41D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PP64RT7P8Z;
+				INFOPLIST_FILE = SpaceTimeMilieuApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IBM.swift.SpaceTimeMilieuApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		CFCD3B6D1E6DF86300FF41D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = PP64RT7P8Z;
+				INFOPLIST_FILE = SpaceTimeMilieuAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IBM.swift.SpaceTimeMilieuAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceTimeMilieuApp.app/SpaceTimeMilieuApp";
+			};
+			name = Debug;
+		};
+		CFCD3B6E1E6DF86300FF41D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = PP64RT7P8Z;
+				INFOPLIST_FILE = SpaceTimeMilieuAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.IBM.swift.SpaceTimeMilieuAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceTimeMilieuApp.app/SpaceTimeMilieuApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFCD3B471E6DF86200FF41D8 /* Build configuration list for PBXProject "SpaceTimeMilieuApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFCD3B671E6DF86300FF41D8 /* Debug */,
+				CFCD3B681E6DF86300FF41D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFCD3B691E6DF86300FF41D8 /* Build configuration list for PBXNativeTarget "SpaceTimeMilieuApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFCD3B6A1E6DF86300FF41D8 /* Debug */,
+				CFCD3B6B1E6DF86300FF41D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CFCD3B6C1E6DF86300FF41D8 /* Build configuration list for PBXNativeTarget "SpaceTimeMilieuAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFCD3B6D1E6DF86300FF41D8 /* Debug */,
+				CFCD3B6E1E6DF86300FF41D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFCD3B441E6DF86200FF41D8 /* Project object */;
+}
