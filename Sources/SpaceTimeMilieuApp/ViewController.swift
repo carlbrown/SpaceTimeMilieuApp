@@ -20,10 +20,20 @@ class ViewController: UIViewController, MKMapViewDelegate {
     private let regionMargin: Double = 0.01
     private let initialViewPortMeters: CLLocationDistance = 5000
     
+    private var mapDecorations: [Decoration] = [Decoration]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.mapView?.delegate = self
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(addDecoration))
+        longPressRecognizer.minimumPressDuration = 2.0
+        self.mapView?.addGestureRecognizer(longPressRecognizer)
+        
+        let tripleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(centerMap))
+        tripleTapRecognizer.numberOfTapsRequired = 3
+        self.mapView?.addGestureRecognizer(tripleTapRecognizer)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,11 +45,32 @@ class ViewController: UIViewController, MKMapViewDelegate {
         super.viewWillAppear(animated)
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(initialLocation.coordinate,initialViewPortMeters, initialViewPortMeters)
         self.mapView?.setRegion(coordinateRegion, animated: true)
+        fetchPoints(points: [initialLocation,finalLocation])
+    }
+    
+    func centerMap() {
+        if let (center, latDelta, longDelta) = Point.region(Decoration.points(mapDecorations)) {
+            DispatchQueue.main.async {
+                self.mapView?.setRegion(MKCoordinateRegionMake(center, MKCoordinateSpan(latitudeDelta: latDelta + self.regionMargin, longitudeDelta: longDelta + self.regionMargin)), animated: true)
+            }
+        }
+    }
+    
+    func addDecoration(gestureRecognizer:UIGestureRecognizer) {
+        if let map = self.mapView {
+            let touchPoint = gestureRecognizer.location(in: map)
+            let newCoordinates = map.convert(touchPoint, toCoordinateFrom: map)
+            let newPoint = Point(coordinate: newCoordinates, datetime: Date())
+            fetchPoints(points: [newPoint])
+        }
+    }
+    
+    func fetchPoints(points:[Point]) {
         var request = URLRequest(url: URL(string:"https://ssldemo.linuxswift.com:8090/api")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         do {
-            request.httpBody = try Point.encodeJSON(points: [initialLocation,finalLocation])
+            request.httpBody = try Point.encodeJSON(points: points)
             let task = URLSession.shared.dataTask(with: request) { fetchData,fetchResponse,fetchError in
                 guard fetchError == nil else {
                     print("Got fetch Error: \(fetchError?.localizedDescription ?? "Error with no description")")
@@ -67,22 +98,17 @@ class ViewController: UIViewController, MKMapViewDelegate {
                             }
                         }
                     }
-                    if let (center, latDelta, longDelta) = Point.region(Decoration.points(decorations)) {
-                        DispatchQueue.main.async {
-                            self.mapView?.setRegion(MKCoordinateRegionMake(center, MKCoordinateSpan(latitudeDelta: latDelta + self.regionMargin, longitudeDelta: longDelta + self.regionMargin)), animated: true)
-                        }
-                    }
+                    self.mapDecorations.append(contentsOf: decorations)
+                    self.centerMap()
                 } catch {
                     print("Could not parse remote JSON Payload \(error)! Giving up!")
                 }
             }
             task.resume()
-
+            
         } catch {
             print("Could not create remote JSON Payload \(error)! Giving up!")
         }
-        
-
     }
 }
 
