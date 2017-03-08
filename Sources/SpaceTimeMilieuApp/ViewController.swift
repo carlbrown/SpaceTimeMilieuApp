@@ -26,6 +26,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.mapView?.delegate = self
+
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(addDecoration))
         longPressRecognizer.minimumPressDuration = 2.0
         self.mapView?.addGestureRecognizer(longPressRecognizer)
@@ -57,15 +58,23 @@ class ViewController: UIViewController, MKMapViewDelegate {
     }
     
     func addDecoration(gestureRecognizer:UIGestureRecognizer) {
+        if (!gestureRecognizer.isEnabled) {
+            return
+        }
+        gestureRecognizer.isEnabled=false
         if let map = self.mapView {
             let touchPoint = gestureRecognizer.location(in: map)
             let newCoordinates = map.convert(touchPoint, toCoordinateFrom: map)
             let newPoint = Point(coordinate: newCoordinates, datetime: Date())
-            fetchPoints(points: [newPoint])
+            fetchPoints(points: [newPoint]) {
+                DispatchQueue.main.async {
+                    gestureRecognizer.isEnabled=true
+                }
+            }
         }
     }
     
-    func fetchPoints(points:[Point]) {
+    func fetchPoints(points:[Point], completion: (() -> ())?=nil) {
         var request = URLRequest(url: URL(string:"https://ssldemo.linuxswift.com:8090/api")!)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -74,10 +83,16 @@ class ViewController: UIViewController, MKMapViewDelegate {
             let task = URLSession.shared.dataTask(with: request) { fetchData,fetchResponse,fetchError in
                 guard fetchError == nil else {
                     print("Got fetch Error: \(fetchError?.localizedDescription ?? "Error with no description")")
+                    if let completion = completion {
+                        completion()
+                    }
                     return
                 }
                 guard let fetchData = fetchData else {
                     print("Nil fetched data with no error")
+                    if let completion = completion {
+                        completion()
+                    }
                     return
                 }
                 do {
@@ -100,14 +115,22 @@ class ViewController: UIViewController, MKMapViewDelegate {
                     }
                     self.mapDecorations.append(contentsOf: decorations)
                     self.centerMap()
+                    if let completion = completion {
+                        completion()
+                    }
                 } catch {
                     print("Could not parse remote JSON Payload \(error)! Giving up!")
+                    if let completion = completion {
+                        completion()
+                    }
                 }
             }
             task.resume()
-            
         } catch {
             print("Could not create remote JSON Payload \(error)! Giving up!")
+            if let completion = completion {
+                completion()
+            }
         }
     }
 }

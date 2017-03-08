@@ -17,7 +17,7 @@ class DecorationAnnotation: NSObject, MKAnnotation {
     init(point:Point, decoration:Decoration) {
         self.point = point
         self.decoration = decoration
-        self.coordinate = CLLocationCoordinate2DMake(point.latitudeDegrees, point.longitudeDegrees)
+        self.coordinate = point.coordinate
     }
     
     var title: String? {
@@ -25,7 +25,10 @@ class DecorationAnnotation: NSObject, MKAnnotation {
     }
 
     var subtitle: String? {
-        return decoration.description
+        if let details = decoration.details {
+            return "\(details)\n\(point.datetime.description(with: NSLocale.current))"
+        }
+        return "\(point.datetime.description(with: NSLocale.current))"
     }
 
     func pinTintColor() -> UIColor  {
