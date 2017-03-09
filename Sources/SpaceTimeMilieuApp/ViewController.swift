@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView?
     
@@ -21,11 +21,23 @@ class ViewController: UIViewController, MKMapViewDelegate {
     private let initialViewPortMeters: CLLocationDistance = 5000
     
     private var mapDecorations: [Decoration] = [Decoration]()
+    private var sourceArray = [String]()
+    
+    private let manager = CLLocationManager()
+    
+    private let decorationUpdateQueue =
+        DispatchQueue(
+            label: "decorationUpdateQueue",
+            attributes: .concurrent)
+    
+    private var pinDroppedAtCurrentLocation = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.mapView?.delegate = self
+        self.manager.delegate = self
 
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(addDecoration))
         longPressRecognizer.minimumPressDuration = 2.0
@@ -36,7 +48,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         self.mapView?.addGestureRecognizer(tripleTapRecognizer)
 
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,8 +61,44 @@ class ViewController: UIViewController, MKMapViewDelegate {
         fetchPoints(points: [initialLocation,finalLocation])
     }
     
+    @IBAction func centerOnCurrentLocation(_ sender: Any) {
+        if (pinDroppedAtCurrentLocation) {
+            if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
+                if let location = self.manager.location {
+                    let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,initialViewPortMeters, initialViewPortMeters)
+                    self.mapView?.setRegion(coordinateRegion, animated: true)
+                }
+            }
+            return
+        }
+        switch CLLocationManager.authorizationStatus() {
+        case .notDetermined:
+            manager.requestWhenInUseAuthorization()
+            
+        case .authorizedWhenInUse:
+            manager.requestLocation()
+            
+        default:
+            print("could not get location")
+        }
+        
+        if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
+            if let location = self.manager.location {
+                let centerPoint = Point(coordinate: location.coordinate, datetime: Date())
+                self.fetchPoints(points: [centerPoint]) {
+                    self.pinDroppedAtCurrentLocation=true
+                }
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    }
+    
     func centerMap() {
-        if let (center, latDelta, longDelta) = Point.region(Decoration.points(mapDecorations)) {
+        if let (center, latDelta, longDelta) = Point.region(Decoration.points(self.mapDecorations)) {
             DispatchQueue.main.async {
                 self.mapView?.setRegion(MKCoordinateRegionMake(center, MKCoordinateSpan(latitudeDelta: latDelta + self.regionMargin, longitudeDelta: longDelta + self.regionMargin)), animated: true)
             }
@@ -107,14 +155,21 @@ class ViewController: UIViewController, MKMapViewDelegate {
                     for decoration in decorations {
                         if let point = decoration.point,
                             let map = self.mapView {
-                            let newAnnotation = DecorationAnnotation(point: point, decoration: decoration)
-                            DispatchQueue.main.async {
-                                map.addAnnotation(newAnnotation)
+                            self.decorationUpdateQueue.async(flags: .barrier) {
+                                if (!self.sourceArray.contains(decoration.source)) {
+                                    self.sourceArray.append(decoration.source)
+                                }
+                                let newAnnotation = DecorationAnnotation(point: point, decoration: decoration, sourceID: self.sourceArray.index(of: decoration.source) ?? 0)
+                                DispatchQueue.main.async {
+                                    map.addAnnotation(newAnnotation)
+                                }
                             }
                         }
                     }
-                    self.mapDecorations.append(contentsOf: decorations)
-                    self.centerMap()
+                    self.decorationUpdateQueue.async(flags: .barrier) {
+                        self.mapDecorations.append(contentsOf: decorations)
+                        self.centerMap()
+                    }
                     if let completion = completion {
                         completion()
                     }
@@ -132,6 +187,27 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 completion()
             }
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? DecorationAnnotation {
+            let identifier = "decorationPin"
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+                as? MKPinAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+            } else {
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                //view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            }
+            
+            view.pinTintColor = annotation.pinTintColor
+            return view
+        }
+        return nil
     }
 }
 
